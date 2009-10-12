@@ -3,8 +3,6 @@ require 'openid/extensions/sreg'
 require 'openid/extensions/ax'
 require 'openid/store/filesystem'
 
-require File.dirname(__FILE__) + '/open_id_authentication/association'
-require File.dirname(__FILE__) + '/open_id_authentication/nonce'
 require File.dirname(__FILE__) + '/open_id_authentication/db_store'
 require File.dirname(__FILE__) + '/open_id_authentication/request'
 require File.dirname(__FILE__) + '/open_id_authentication/timeout_fixes' if OpenID::VERSION == "2.0.4"
@@ -28,8 +26,6 @@ module OpenIdAuthentication
       store
     end
   end
-
-  self.store = :db
 
   class InvalidOpenId < StandardError
   end

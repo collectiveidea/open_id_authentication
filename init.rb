@@ -12,6 +12,10 @@ else
   end
 end
 
+config.after_initialize do
+  OpenIdAuthentication.store ||= :db
+end
+
 config.to_prepare do
   OpenID::Util.logger = Rails.logger
   ActionController::Base.send :include, OpenIdAuthentication
