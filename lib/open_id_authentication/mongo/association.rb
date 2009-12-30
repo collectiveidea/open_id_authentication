@@ -9,10 +9,10 @@ module OpenIdAuthentication
       key :handle,      String
       key :assoc_type,  String
       key :server_url,  String
-      key :secret,      String
+      key :secret,      Binary
 
       def from_record
-        OpenID::Association.new(handle, secret, issued, lifetime, assoc_type)
+        OpenID::Association.new(handle, secret.to_s, issued, lifetime, assoc_type)
       end
     end
   end
